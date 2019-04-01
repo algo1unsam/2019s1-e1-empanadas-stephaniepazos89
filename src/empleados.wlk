@@ -5,35 +5,31 @@ object gimenez {
 	var sueldo = 15000
 	var deuda=0
 	var dinero=0
-	var gastar
+	
 	
 	method sueldo() { return sueldo }
 	method sueldo(nuevoValor) { sueldo = nuevoValor }
-	method cobrarSueldo(){}
-	
-	method gastar(cuanto){}
-	method gastarEsMenorQueDinero(cuanto){
-		return (cuanto<dinero)
-	}
-	
-		//if(gastar==dinero){
-			//dinero-=gastar
-			//gastar=0
-		//}
-		//if(gastar<dinero){
-			//dinero-=gastar
-		//}else
-			//deuda+=gastar-dinero
-	//}	
-	method totalDeuda(cuanto){
-		deuda+=(cuanto-dinero)
-		return deuda
-		}
-	method totalDinero(cuanto){
-		dinero-=cuanto
-		return dinero
+	method cobrarSueldo(){
+		dinero+=sueldo
 		
 	}
+	
+	method gastar(cuanto){
+		if(dinero>cuanto){
+			dinero-=cuanto
+		
+		}else{
+			deuda+=(cuanto-dinero)
+		}
+	}
+	
+	method totalDeuda(){
+		return deuda
+		}
+		
+	method totalDinero(){
+		return dinero
+		}
 }
 
 object baigorria {
