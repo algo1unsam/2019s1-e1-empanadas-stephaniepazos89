@@ -11,15 +11,24 @@ object gimenez {
 	method sueldo(nuevoValor) { sueldo = nuevoValor }
 	method cobrarSueldo(){
 		dinero+=sueldo
+		if(dinero>=deuda){
+			dinero-=deuda
+			deuda=0
+		}else{
+			deuda-=dinero
+			dinero=0
+		}
+		}
 		
-	}
+		
 	
 	method gastar(cuanto){
 		if(dinero>cuanto){
 			dinero-=cuanto
 		
 		}else{
-			deuda+=(cuanto-dinero)
+			deuda+=(cuanto-dinero)	
+			dinero=0		
 		}
 	}
 	
