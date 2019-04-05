@@ -9,20 +9,19 @@ object gimenez {
 	
 	method sueldo() { return sueldo }
 	method sueldo(nuevoValor) { sueldo = nuevoValor }
-	method cobrarSueldo(){
-		dinero+=sueldo
+	method cobrarSueldo(){dinero+=sueldo
 		if(dinero>=deuda){
 			dinero-=deuda
 			deuda=0
-		}else{
-			deuda-=dinero
+			}else{
+				
+			deuda-=dinero	
 			dinero=0
-		}
+			}
+		
 		}
 		
-		
-	
-	method gastar(cuanto){
+		method gastar(cuanto){
 		if(dinero>cuanto){
 			dinero-=cuanto
 		
@@ -42,15 +41,25 @@ object gimenez {
 }
 
 object baigorria {
-	var cantidadEmpanadasVendidas = 100
+	var cantidadEmpanadasVendidas = 0
 	var montoPorEmpanada = 15
 	var acum=0
 	
-	method venderEmpanada() {
-		cantidadEmpanadasVendidas += 1
+	// Aca ingreso la cantidad de empanadas que vendio Baigorria en el mes, 
+	//ya que no siempre puede vender 100 unidades puede vender mas o menos
+	
+	method cantidadDeEmpanadasVendidas(cant){
+		cantidadEmpanadasVendidas=cant
 	}
- 	
-	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
+	
+	//Elimine este metodo porque con el anterior ya ingreso la cantidad de empanadas 
+	//que vendio al mes
+	//method venderEmpanada(){
+	//cantidadEmpanadasVendidas+=1
+	//}
+	
+	
+ 	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
 	
 	method totalCobrado(){
 		return acum
@@ -69,3 +78,4 @@ object galvan {
 	method pagarA( empleado ) { dinero -= empleado.sueldo() 
 	empleado.cobrarSueldo()}
 }
+
